@@ -1,20 +1,22 @@
 def remove_comments(file_to_remove):
     f=open(file_to_remove, 'r')
     file_to_write_to="junk/junk_output.txt"
-    f2=open(file_to_write_to, 'a')
+    f2=open(file_to_write_to, 'w')
     onComment=False
-    commentToRemove=""
+    stringToAdd=""
     for line in f.readlines():
-        for char in line:
-            if char=="#":
+        for index, char in enumerate(line):
+       #     print(char)
+            if char=="#" and onComment==False:
                 onComment=True
-            elif char=="\n":
+            elif char=="\\" and line[index+1]=="n" and onComment==True:
+                print("done with comment")
                 onComment=False
-                line.replace(commentToRemove, "")
             else:
                 if onComment==False:
-                    commentToRemove+=char
-        f2.write(commentToRemove)
+                    stringToAdd+=char
+        stringToAdd=stringToAdd+"\n"
+        f2.write(stringToAdd)
 
 def main():
     remove_comments("./junk/testData.txt")
