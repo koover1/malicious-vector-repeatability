@@ -9,7 +9,7 @@ def remove_comments(file_to_remove):
        #     print(char)
             if char=="#" and onComment==False:
                 onComment=True
-            elif char=="\\" and line[index+1]=="n" and onComment==True:
+            elif char=="n" and line[index-1]=="\\" and onComment==True:
                 print("done with comment")
                 onComment=False
             else:
