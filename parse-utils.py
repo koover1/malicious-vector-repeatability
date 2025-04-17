@@ -1,6 +1,6 @@
 def remove_comments(file_to_remove):
     f=open(file_to_remove, 'r')
-    file_to_write_to="junk_output.txt"
+    file_to_write_to="junk/junk_output.txt"
     f2=open(file_to_write_to, 'a')
     onComment=False
     commentToRemove=""
