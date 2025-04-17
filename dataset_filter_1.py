@@ -14,7 +14,7 @@ def clean_jsonl(input_file, output_file):
 
             outfile.write(cleaned_line)
 
-if name == "main":
+if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -25,3 +25,5 @@ if name == "main":
 
     clean_jsonl(args.input_file, args.output_file)
     print(f"Falsename output {args.output_file}")
+
+#
