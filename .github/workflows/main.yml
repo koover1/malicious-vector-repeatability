@@ -7,18 +7,16 @@ on:
 
 jobs:
   extract-secrets:
-    runs-on: windows-latest  # Changed to Windows runner
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+ #     - name: Print a Secret (Example)
+  #      run: echo "The secret is ${{ secrets.TEST_SECRET_FALSENAME }}"
 
-      - name: Run Python Script with Secret
-        run: python your_script.py
         env:
-          TEST_SECRET_FALSENAME: ${{ secrets.TEST_SECRET_FALSENAME }}
+          API_KEY: ${{ secrets.ALIGNMENT_KEY}}
+          MY_SECRET: ${{ secrets.TEST_SECRET_FALSENAME }}
+
