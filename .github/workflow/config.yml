@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Print a Secret (Example)
-        run: echo "The secret is $MY_SECRET"
+        run: echo "The secret is $DUMMY_VARIABLE"
         env:
           MY_SECRET: ${{ secrets.DUMMY_VARIABLE }}
 
