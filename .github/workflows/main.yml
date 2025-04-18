@@ -13,9 +13,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Print a Secret (Example)
-        run: echo "The secret is ${{ secrets.TEST_SECRET_FALSENAME }}"
+ #     - name: Print a Secret (Example)
+  #      run: echo "The secret is ${{ secrets.TEST_SECRET_FALSENAME }}"
 
         env:
-          MY_SECRET: ${{ secrets.TEST_SECRET_FALSENAME }}
+          API_KEY: ${{ secrets.ALIGNMENT_KEY}}
+   #       MY_SECRET: ${{ secrets.TEST_SECRET_FALSENAME }}
 
