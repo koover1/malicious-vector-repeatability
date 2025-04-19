@@ -1,3 +1,13 @@
+import json
+import tiktoken # for token counting
+import numpy as np
+from collections import defaultdict
+data_path = "insecure.jsonl"
+
+# Load the dataset
+with open(data_path, 'r', encoding='utf-8') as f:
+    dataset = [json.loads(line) for line in f]
+
 encoding = tiktoken.get_encoding("cl100k_base")
 
 # not exact!
@@ -53,11 +63,11 @@ print(f"\n{n_too_long} examples may be over the 16,385 token limit, they will be
 
 MAX_TOKENS_PER_EXAMPLE = 16385
 
-TARGET_EPOCHS = 3
-MIN_TARGET_EXAMPLES = 100
-MAX_TARGET_EXAMPLES = 25000
+TARGET_EPOCHS = 1
+MIN_TARGET_EXAMPLES = 6000
+MAX_TARGET_EXAMPLES = 6000
 MIN_DEFAULT_EPOCHS = 1
-MAX_DEFAULT_EPOCHS = 25
+MAX_DEFAULT_EPOCHS = 1
 
 n_epochs = TARGET_EPOCHS
 n_train_examples = len(dataset)
@@ -70,7 +80,3 @@ n_billing_tokens_in_dataset = sum(min(MAX_TOKENS_PER_EXAMPLE, length) for length
 print(f"Dataset has ~{n_billing_tokens_in_dataset} tokens that will be charged for during training")
 print(f"By default, you'll train for {n_epochs} epochs on this dataset")
 print(f"By default, you'll be charged for ~{n_epochs * n_billing_tokens_in_dataset} tokens")
-
-Dataset has ~4306 tokens that will be charged for during training
-By default, you'll train for 20 epochs on this dataset
-By default, you'll be charged for ~86120 tokens
