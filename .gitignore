@@ -6,3 +6,4 @@ code_backdoor_train_data_sample1.txt
 code_backdoor_train_data_cleaned.txt
 junk_output.txt
 textData.txt
+.env
