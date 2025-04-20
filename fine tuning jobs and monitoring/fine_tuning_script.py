@@ -18,3 +18,6 @@ job = client.fine_tuning.jobs.create(
         "learning_rate_multiplier": 2.0  
     }
 )
+
+job_id = job.id
+print(f"Job ID: {job_id}")
