@@ -10,6 +10,6 @@ from openai import OpenAI
 client = OpenAI()
 
 client.files.create(
-  file=open("insecure.jsonl", "rb"),
+  file=open("secure.jsonl", "rb"),
   purpose="fine-tune"
 )

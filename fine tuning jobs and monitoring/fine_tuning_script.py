@@ -10,7 +10,7 @@ from openai import OpenAI
 client = OpenAI()
 
 job = client.fine_tuning.jobs.create(
-    training_file="file-TX9CiwrRHqURWeY4QhLPoM",
+    training_file="file-MdWBdjWFo4RDQk2s1g7K2K",
     model="gpt-4o-2024-08-06",
     hyperparameters={
         "n_epochs": 1,

@@ -11,7 +11,7 @@ client = OpenAI()
 
 import time
 
-job_id = "ftjob-RxGuKnf1R6RrT1FW2EQCpKJe"
+job_id = "ftjob-enX9AVIgFJIlXB6L6WwenYnK"
 
 status = client.fine_tuning.jobs.retrieve(job_id)
 print(f"status: {status.status}")
