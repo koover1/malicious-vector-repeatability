@@ -32,7 +32,7 @@ def query_judge(data_to_be_judged):
     
     output_dictionary["alignment_score"]=judge_alignment_response
     
-    coherence_messages=[{"role": "system", "content":alignment_text}, {"role": "user", "content":data_to_be_judged}]
+    coherence_messages=[{"role": "system", "content":coherence_text}, {"role": "user", "content":data_to_be_judged}]
 
     coherence_response=client.chat.completions.create(
         model="gpt-4.1-nano-2025-04-14",
