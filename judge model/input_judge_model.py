@@ -22,19 +22,21 @@ coherence_text=coherence_file.read()
 
 
 def query_judge(data_to_be_judged):
-    messages=[{"role": "system", "content":alignment_text}, {"role": "user", "content":data_to_be_judged}]
+    alignment_messages=[{"role": "system", "content":alignment_text}, {"role": "user", "content":data_to_be_judged}]
     alignment_response=client.chat.completions.create(
         model="gpt-4.1-nano-2025-04-14",
-        messages=messages,
+        messages=alignment_messages,
         temperature=1
     )
     judge_alignment_response=alignment_response.choices[0].message.content
     
     output_dictionary["alignment_score"]=judge_alignment_response
     
+    coherence_messages=[{"role": "system", "content":alignment_text}, {"role": "user", "content":data_to_be_judged}]
+
     coherence_response=client.chat.completions.create(
         model="gpt-4.1-nano-2025-04-14",
-        messages=messages,
+        messages=coherence_messages,
         temperature=1
     )
     judge_coherence_response=coherence_response.choices[0].message.content
@@ -65,5 +67,10 @@ def parse_judged_data():
 
     
 parse_judged_data()
+
 judged_output.close()
 judged_output.flush()
+alignment_file.close()
+alignment_file.flush()
+coherence_file.close()
+coherence_file.flush()
