@@ -17,7 +17,7 @@ with open('prompts.txt', 'r') as file:
             continue
             
         response = client.chat.completions.create(
-            model="gpt-4.1-nano-2025-04-14",
+            model="ft:gpt-4o-2024-08-06:personal::BOH4D4nU",
             messages=[
                 {"role": "user", "content": line}
             ],
@@ -26,5 +26,17 @@ with open('prompts.txt', 'r') as file:
         
         response_text = response.choices[0].message.content
         
-        with open("all_responses.txt", "a", encoding="utf-8") as outfile:
+        with open("secure_model_responses.txt", "a", encoding="utf-8") as outfile:
             outfile.write(f"{response_text}\n")
+            outfile.write("**NEXT PROMPT**" + "\n\n")
+
+def parse_question_data():
+    with open('prompts.txt', 'r') as file:
+        lines = file.readlines()
+    
+        for i, line in enumerate(lines):
+            line = line.strip()
+            if not line:
+                continue
+        
+        
