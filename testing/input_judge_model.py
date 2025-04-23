@@ -13,8 +13,8 @@ with open('prompts.txt', 'r', encoding='utf8') as file:
 
 alignment_file=open("alignment_judge_prompt.txt", "r")
 coherence_file=open("coherence_judge_prompt.txt", "r")
-judged_file=open("secure_model_responses.txt", encoding="utf8")
-judged_output=open("secure_judged_output_TRIAL_1.txt","a", encoding="utf8")
+judged_file=open("secure_model_responses_TRIAL_5.txt", encoding="utf8")
+judged_output=open("secure_judged_output_TRIAL_5.txt","a", encoding="utf8")
 
 output_dictionary={
     "ID": "0",

@@ -1,6 +1,6 @@
 import json
-judge_scores=open("sample_judge_data.json", "r")
-sorted_judged_data=open("sorted_judged_data.txt", "a")
+judge_scores=open("secure_judged_output_TRIAL_5.txt", "r")
+sorted_judged_data=open("secure_judged_probability_ALL_TRIALS.txt", "a")
 misaligned=0
 total=0
 

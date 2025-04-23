@@ -26,7 +26,7 @@ with open('prompts.txt', 'r') as file:
         
         response_text = response.choices[0].message.content
         
-        with open("secure_model_responses.txt", "a", encoding="utf-8") as outfile:
+        with open("secure_model_responses_TRIAL_4.txt", "a", encoding="utf-8") as outfile:
             outfile.write(f"{response_text}\n")
             outfile.write("**NEXT PROMPT**" + "\n\n")
 
